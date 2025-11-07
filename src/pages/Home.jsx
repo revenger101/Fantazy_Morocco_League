@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import FeatureCard from '../components/Cards/FeatureCard';
 import MatchCard from '../components/Cards/MatchCard';
+import ScoreCard from '../components/Cards/ScoreCard';
 
 const HomePage = () => {
   
@@ -69,7 +70,7 @@ const HomePage = () => {
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
             Welcome to 
             <span className="bg-gradient-to-r from-red-600 to-green-600 bg-clip-text text-transparent">
-              {' '}Premier League
+              {' '}Fantazy Botolab
             </span>
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -115,8 +116,11 @@ const HomePage = () => {
           </div>
         </div>
 
+        {/* Score Card Section */}
+              <ScoreCard/>
+              
         {/* Quick Actions */}
-        <div className="bg-gradient-to-r from-red-600 to-green-600 rounded-2xl p-8 text-white">
+        <div className="bg-gradient-to-r from-red-600 to-green-600 rounded-2xl p-8 text-white mt-4">
           <h2 className="text-2xl font-bold mb-4">Ready to Play?</h2>
           <p className="mb-6 text-lg">Pick your team and start your Premier League journey today.</p>
           <button className="bg-white text-gray-900 px-8 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors transform hover:scale-105 duration-200">

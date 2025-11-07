@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import LogoFoot from '../../assets/images/LogoFoot.png';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,23 +22,16 @@ const Navbar = () => {
     if (itemName === 'signout') {
       handleSignOut();
     } else {
-      // Handle other navigation items
       const route = itemName.toLowerCase().replace(' ', '-');
       navigate(`/${route}`);
     }
   };
 
   const handleSignOut = () => {
-    // Clear user data from localStorage/sessionStorage
     localStorage.removeItem('userToken');
     localStorage.removeItem('userData');
     sessionStorage.removeItem('userToken');
-    
-    // Navigate to login page
     navigate('/login');
-    
-    // Optional: Show success message
-    console.log('User signed out successfully');
   };
 
   const handleItemClick = (itemName) => {
@@ -47,7 +41,6 @@ const Navbar = () => {
     if (itemName === 'signout') {
       handleSignOut();
     } else {
-      // Handle other navigation
       const route = itemName.toLowerCase().replace(' ', '-');
       navigate(`/${route}`);
     }
@@ -58,18 +51,26 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           
-          {/* Logo/Brand */}
-          <div className="flex-shrink-0 flex items-center">
-            <div 
-              className="flex items-center space-x-3 cursor-pointer"
-              onClick={() => navigate('/')}
-            >
-              <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                <span className="text-sm font-bold text-red-600">PL</span>
-              </div>
-              <span className="text-white font-semibold text-lg tracking-tight">Premier League</span>
-            </div>
-          </div>
+        {/* Logo/Brand with Custom Image */}
+<div className="flex-shrink-0 flex items-center">
+  <div 
+    className="flex items-center space-x-4 cursor-pointer group"
+    onClick={() => navigate('/')}
+  >
+    <div className="w-14 h-14 flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
+      <img 
+        src={LogoFoot}
+        alt="Fantazy Botolab Logo"
+        className="w-full h-full object-contain drop-shadow-2xl"
+      />
+    </div>
+    <div>
+      <span className="text-white font-bold text-xl tracking-tight block">Fantazy Botolab</span>
+      <span className="text-white text-opacity-80 text-sm block">Fantasy Premier League</span>
+    </div>
+  </div>
+</div>
+
 
           {/* Desktop Menu */}
           <div className="hidden md:block">
